@@ -17,7 +17,7 @@ class SolutionTLE:
                 
         return False
     
-class Solution: # DP
+class SolutionOld: # DP
     # @param s, a string
     # @param dict, a set of string
     # @return a boolean
@@ -38,7 +38,32 @@ class Solution: # DP
         
         return DP[0]
         
-        
+
+class Solution(object):
+    def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        """
+        wordDict = set(wordDict)
+        #define dp[i][j] = s[i:j] can be break
+        N = len(s)
+        dp = [[None]*(N+1) for _ in xrange(N+1)]
+        for L in xrange(1, N+1): # for each substring length
+            for i in xrange(0, N-L +1):
+                j = i+L
+                if s[i:j] in wordDict:
+                    dp[i][j] = True 
+                else:
+                    dp[i][j] = False
+                    for k in xrange(i+1, j):
+                        # print N, i, L, j, k
+                        if dp[i][k] and dp[k][j]:
+                            dp[i][j] = True 
+                            break 
+
+        return dp[0][N]
     
 print Solution().wordBreak("leetcode", ["leet", "code"])
 print Solution().wordBreak("a", ["a"])
