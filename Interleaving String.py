@@ -1,16 +1,9 @@
 class Solution(object):
     def isInterleave(self, s1, s2, s3):
-        """
-        :type s1: str
-        :type s2: str
-        :type s3: str
-        :rtype: bool
-        """
         if len(s3) != len(s1)+len(s2): return False 
         L1, L2 = len(s1), len(s2)
-        dp = [ [None] * (L2+1) for _ in xrange(L1+1) ]
-
-        dp[0][0] = True
+        dp = [None] * (L2+1)
+        dp[0] = True
 
         for i in xrange(0, L1+1):
             for j in xrange(0, L2+1):
@@ -19,15 +12,15 @@ class Solution(object):
             	m1 = i > 0 and s1[i-1] == s3[i+j-1]
             	m2 = j > 0 and s2[j-1] == s3[i+j-1]
             	if m1 and m2:
-            		dp[i][j] = dp[i-1][j] or dp[i][j-1]
+            		dp[j] = dp[j] or dp[j-1]
             	elif m1:
-            		dp[i][j] = dp[i-1][j]
+            		dp[j] = dp[j]
             	elif m2:
-            		dp[i][j] = dp[i][j-1]
+            		dp[j] = dp[j-1]
             	else:
-            		dp[i][j] = False
+            		dp[j] = False
 
-        return dp[L1][L2]
+        return dp[L2]
 
 print Solution().isInterleave("", "", "")
 print Solution().isInterleave("aabcc", "dbbca", "aadbbcbcac")
