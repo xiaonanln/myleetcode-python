@@ -26,6 +26,6 @@ class Solution:
                 
         return dummy.next
     
-import useful as u
+import utils as u
 u.printlist(Solution().swapPairs( u.makelist() ))
 u.printlist(Solution().swapPairs( u.makelist(1, 2, 3, 4) ))

@@ -43,5 +43,5 @@ class Solution(object):
 		return node.val 
 
 
-from useful import printtree, maketree
+from utils import printtree, maketree
 printtree(Solution().deleteNode(maketree([5,3,6,2,4,None,7]), 3))

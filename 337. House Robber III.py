@@ -5,7 +5,7 @@
 #		 self.left = None
 #		 self.right = None
 
-import useful
+import utils
 
 class Solution(object):
 
@@ -35,6 +35,6 @@ class Solution(object):
 		return ret 
 
 
-print Solution().rob(useful.maketree( [3, 2, 3, None, 3, None, 1] ))
-print Solution().rob(useful.maketree( [3, 4, 5, 1, 3, None, 1] ))
-# useful.printtree(useful.maketree( [3, 4, 5, 1, 3, None, 1] ))
+print Solution().rob(utils.maketree( [3, 2, 3, None, 3, None, 1] ))
+print Solution().rob(utils.maketree( [3, 4, 5, 1, 3, None, 1] ))
+# utils.printtree(utils.maketree( [3, 4, 5, 1, 3, None, 1] ))

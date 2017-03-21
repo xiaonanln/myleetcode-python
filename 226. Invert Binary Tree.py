@@ -15,8 +15,8 @@ class Solution(object):
         root.right, root.left = self.invertTree(root.left), self.invertTree(root.right)
        	return root
 
-import useful
-t = useful.maketree([1, 2, 7, 1, 3, 6, 9])
-useful.printtree(t)
+import utils
+t = utils.maketree([1, 2, 7, 1, 3, 6, 9])
+utils.printtree(t)
 t = Solution().invertTree(t)
-useful.printtree(t)
+utils.printtree(t)

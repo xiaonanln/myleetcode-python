@@ -25,6 +25,6 @@ class Solution:
         
         return self.solve(left.left, right.right) and self.solve(left.right, right.left)
 
-import useful as u
+import utils as u
 print Solution().isSymmetric( u.maketree( [1, 2, 2, 3, 4, 4, 3] ) )
 print Solution().isSymmetric( u.maketree( [1, 2, 2, None, 3, None, 3] ) )

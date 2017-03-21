@@ -49,5 +49,5 @@ class Solution(object):
         return p1
                         
                 
-from useful import makelist,printlist
+from utils import makelist,printlist
 printlist(Solution().partition(makelist(1,1), 2))
