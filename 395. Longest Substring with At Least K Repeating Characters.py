@@ -21,6 +21,7 @@ Output:
 The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
 """
 
+from collections import Counter
 class Solution(object):
 	def longestSubstring(self, s, k):
 		"""
@@ -28,5 +29,24 @@ class Solution(object):
 		:type k: int
 		:rtype: int
 		"""
+		C = Counter(s)
+		# print s, k , C
 
+		if not [1 for n in C.itervalues() if n < k]:
+			return len(s)
 
+		st = 0
+		res = 0
+		for i in xrange(0, len(s)):
+			if C[s[i]] < k:
+				# this char is not good
+				res = max(res, self.longestSubstring(s[st:i], k))
+				st = i+1
+
+		res = max(res, self.longestSubstring(s[st:len(s)], k))
+
+		return res
+
+print Solution().longestSubstring('aaabb',3)
+print Solution().longestSubstring('ababbc',2)
+print Solution().longestSubstring("bbaaacbd",3)
