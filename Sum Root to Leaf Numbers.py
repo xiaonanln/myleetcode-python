@@ -5,7 +5,7 @@
 #         self.left = None
 #         self.right = None
 
-from useful import *
+from utils import *
 
 class Solution:
     # @param root, a tree node

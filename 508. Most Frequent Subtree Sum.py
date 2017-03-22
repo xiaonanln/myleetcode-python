@@ -36,7 +36,7 @@ class Solution(object):
  /  \
 2   -5
 """
-import useful
+import utils
 print Solution().findFrequentTreeSum(None)
-print Solution().findFrequentTreeSum(useful.maketree([5, 2, -3]))
-print Solution().findFrequentTreeSum(useful.maketree([5, 2, -5]))
+print Solution().findFrequentTreeSum(utils.maketree([5, 2, -3]))
+print Solution().findFrequentTreeSum(utils.maketree([5, 2, -5]))
