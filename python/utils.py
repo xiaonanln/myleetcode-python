@@ -1,5 +1,7 @@
 import sys
 
+def mdarray(initVal, *dims): return [initVal] * dims[0] if len(dims) == 1 else [ mdarray(initVal, *dims[1:]) for _ in xrange(dims[0])]
+
 class ListNode:
     def __init__(self, x):
         self.val = x
