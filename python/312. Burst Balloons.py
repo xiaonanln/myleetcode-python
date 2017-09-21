@@ -10,7 +10,7 @@ class Solution(object):
 
 		for l in xrange(1, N+1): # l = 1 ~ N
 			for i in xrange(0, N-l+1):
-				j = i + l # j = i ~ N it is always better to use j index to indicate nums from i to j-1
+				j = i + l # j = i ~ N it is always better to use j index to indicate nums from i to j-122
 				for k in xrange(i, j): # k = i ~ j
 					dp[i][j] = max(dp[i][j], dp[i][k] + dp[k+1][j] + nums[i-1]*nums[k]*nums[j])
 
