@@ -14,7 +14,7 @@ def printlist(head):
         vals.append(n.val)
         n = n.next
         
-    print '->'.join(map(str, vals))
+    print '->'.join(map(str, vals)) + '->[end]'
     
 def makelist(*values):
     if len(values) == 1 and isinstance(values[0], list):
