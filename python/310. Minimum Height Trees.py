@@ -32,8 +32,47 @@ class SolutionFloydButTimeout(object):
 		return [v for v, md in enumerate(maxDist) if md == minTreeDepth]
 
 
+class Solution(object):
+	def findMinHeightTrees(self, N, edges):
+		"""
+		:type n: int
+		:type edges: List[List[int]]
+		:rtype: List[int]
+		"""
+		adjs = [set() for _ in xrange(N)]
+		degree = [0] * N
+		for a, b in edges:
+			adjs[a].add(b)
+			adjs[b].add(a)
+			degree[a] += 1
+			degree[b] += 1
 
-print Solution().findMinHeightTrees(7, [[0,1],[1,2],[1,3],[2,4],[3,5],[4,6]])
+		leafs = [v for v in xrange(N) if degree[v] == 1]
+		newleafs = []
+		leftVertex = set(xrange(N))
+		while len(leftVertex) > 2:
+			# print 'removing leafs', leftVertex, leafs, degree
+			for u in leafs: # remove leafs from the graph
+				# print 'remove', u
+				assert len(adjs[u]) == 1 and degree[u] == 1, (u, adjs, degree,leftN)
+
+				degree[u] = 0
+				leftVertex.discard(u)
+				v = adjs[u].pop()
+
+				adjs[v].discard(u)
+				degree[v] -= 1
+
+				if degree[v] == 1:
+					newleafs.append(v)
+
+			leafs, newleafs = newleafs, []
+
+		return list(leftVertex)
+
+
+
+print Solution().findMinHeightTrees(4, [[1,0],[1,2],[1,3]])
 # print Solution().findMinHeightTrees(4, [[1, 0], [1, 2], [1, 3]])
 # import cProfile
 # cProfile.run("""
