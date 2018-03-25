@@ -34,7 +34,6 @@ class NestedIterator(object):
 
 	def iter(self, nestedList):
 		for elem in nestedList:
-			print type(elem)
 			if isinstance(elem, NestedInteger):
 				if elem.isInteger():
 					yield elem.getInteger()
