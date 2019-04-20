@@ -22,7 +22,6 @@ class Solution(object):
 		for i in xrange(1, D+1):
 			W[i] = W[i-1] * 2 + 1
 
-		print D, W
 		ret = [
 			[""] * W[D] for _ in xrange(D)
 		]
